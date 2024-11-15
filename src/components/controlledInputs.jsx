@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { data } from "./data";
+import { data } from "./../data";
 const frameworks = ["Angular", "React", "Node"];
 
 const ControlledInputs = () => {
