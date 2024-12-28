@@ -1,10 +1,11 @@
-import InputChallenge from "./components/InputChallenge";
-// import ControlledInputs from "./controlledInputs";
+import ControlledInputs from "./components/controlledInputs";
+
+//import InputChallenge from "./components/InputChallenge";
 function App() {
  
   return (
-    //<ControlledInputs />
-    <InputChallenge />
+    <ControlledInputs />
+  //  <InputChallenge />
   );
 }
 

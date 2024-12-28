@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { data } from "./../data";
+import List from "./list";
 const frameworks = ["Angular", "React", "Node"];
 
 const ControlledInputs = () => {
@@ -40,10 +41,12 @@ const ControlledInputs = () => {
        // ev.currentTarget.reset()
      };
 
-     const removeUser = (id) => {
+  const removeUser = useCallback(
+     (id) => {
        const newUsers = users.filter((user) => user.id !== id);
        setUsers(newUsers);
-     };
+     }, [users])
+   
     
     return (
       <>
@@ -118,17 +121,7 @@ const ControlledInputs = () => {
           </button>
         </form>
         <h2>users</h2>
-        {users.map((user) => {
-          return (
-            <div key={user.id}>
-              <h4> {user.name} </h4>
-              <button onClick={() => removeUser(user.id)} className="btn">
-                {" "}
-                Remove
-              </button>
-            </div>
-          );
-        })}
+        <List removeUser={removeUser} users={users} />
       </>
     );
 }
